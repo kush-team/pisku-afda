@@ -1,3 +1,108 @@
-body {
-	background: red;
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500|Alegreya+Sans:300,400,400i,700');
+@import 'bower_components/bourbon/app/assets/stylesheets/bourbon';
+@import 'bower_components/neat/app/assets/stylesheets/neat';
+
+$mobile: new-breakpoint(max-width 500px 6);
+$tablet: new-breakpoint(max-width 992px 6);
+
+* {
+	font-family: 'Alegreya Sans', serif !important;
 }
+
+ body {
+ 	background-color: #21b49b;
+ 	padding-top: 50px;
+ 	background-image: url(/img/back-game.png);
+ 	background-size: cover;
+ }
+
+ nav {
+ 	position: fixed;
+ 	top: 0;
+ 	left: 0;
+ 	right: 0;
+ 	height: 50px;
+ 	background: #f9f9f9;
+ 	display: flex;
+ 	flex-direction: column;
+ 	align-items: center;
+ 	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+ 	z-index: 1;
+
+ 	.main-logo {
+ 		margin-top: 5px;
+ 	}
+ }
+
+ .intro {
+ 	max-width: 230px;
+ 	margin: 0 auto;
+ 	display: flex;
+ 	flex-direction: column;
+ 	align-items: center;
+ 	justify-content: center;
+ 	height: calc(100vh - 50px);
+
+ 	.title {
+ 		color: #fff;
+ 		font-size: 25px;
+ 		font-weight: 100;
+ 	}
+
+ 	.button {
+ 		background: #f8aa1f !important;
+ 		font-family: 'Alegreya Sans SC', sans-serif;
+
+ 	}
+ }
+
+ .pisku-anim {
+
+ }
+
+ .memotest {
+ 	max-width: 900px;
+ 	padding: 2em 1em;
+ 	margin: 0 auto;
+ 	display: flex;
+ 	flex-wrap: wrap;
+ 	flex-direction: row;
+ 	justify-content: center;
+ 	height: calc(100vh - 50px);
+ 	align-content: center;
+
+ 	@include media($mobile) {
+		align-content: center;
+		width: 100%;
+		max-width: 100%;
+		padding: 5px;
+	}
+
+ 	.card {
+ 		width: 13%;
+ 		margin: 5px;
+ 		cursor: pointer;
+ 		-webkit-transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+ 		-moz-transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+ 		transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+
+	 	@include media($mobile) {
+			width: 67px;
+		}
+
+		&:hover {
+			-webkit-transform: scale(1.05);
+			-ms-transform: scale(1.05);
+			transform: scale(1.05);
+		}
+
+ 		img {
+ 			width: 100%;
+ 		}
+
+ 		&.flip {
+ 			-webkit-transform: rotateY(180deg);
+ 			    transform: rotateY(180deg);
+ 		}
+ 	}
+ }
