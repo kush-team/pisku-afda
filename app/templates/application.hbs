@@ -1,7 +1,11 @@
 <nav>
-	{{#link-to 'index' class="main-logo"}} 
-		<img src="/img/logo-afda.svg" width="40px">
-	{{/link-to}}
+{{#link-to 'index' class="home"}} 
+	<i class="fa fa-home" aria-hidden="true"></i>
+{{/link-to}}
+
+{{#link-to 'settings' class="settings"}} 
+	<i class="fa fa-cog" aria-hidden="true"></i>
+{{/link-to}}
 </nav>
 
 {{outlet}}

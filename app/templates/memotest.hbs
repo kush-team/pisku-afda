@@ -1,47 +1,166 @@
-<div class="memotest">
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card flip">
-		<img src="/img/back-card.svg">
-	</div>
-	<div class="card">
-		<img src="/img/back-card.svg">
-	</div>
+{{#link-to 'index' class="main-logo"}} 
+<img src="/img/pisku.svg" class="pisku pisku-anim" width="50px">
+{{/link-to}}
 
+<div class="ingame">
+
+
+
+<h2>Memotest Familiar</h2>
+<div class="memotest">
+	{{memo-card class="card"}}
+
+	<div class="card">
+		<div class="flipper {{if isOpen "flipped"}}" {{action 'toggleOpen'}}>
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-2.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-3.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-4.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-5.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-6.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-7.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-8.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-1.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-2.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-3.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-4.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-5.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-6.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-7.png">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="flipper">
+			<div class="front">
+				<img src="/img/back-card.svg">
+			</div>
+			<div class="back">
+				<img src="/img/piezas-8.png">
+			</div>
+		</div>
+	</div>
 </div>
 
 {{outlet}}
+</div>
