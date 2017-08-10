@@ -1,5 +1,11 @@
+$mobile: new-breakpoint(max-width 400px 6);
+$vertical: new-breakpoint(max-width 700px 6);
+$tablet: new-breakpoint(max-width 1025px 6);
+
 .flipper {
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition-property: -webkit-transform;
   width: 130px;
   height: 130px;
   overflow: hidden;
@@ -7,10 +13,22 @@
   border-radius: 15px;
   transition: 0.6s;
   position: relative;
+
+@include media($vertical) {
+width: 90px;
+height: 90px;
+}
+
+@include media($mobile) {
+width: 70px;
+height: 70px;
+}
+
 }
 .front, .back {
   transition: all .4s;
 	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -51,6 +69,7 @@
 /* hide back of pane during swap */
 .front, .back {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;

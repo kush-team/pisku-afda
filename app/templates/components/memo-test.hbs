@@ -1,10 +1,15 @@
-<h2>Memotest Familiar</h2>
 <div class="memotest">
 	{{#each cards as |card|}}
 		{{memo-card class="card" model=card flipped='flipped' bloked=cardsBloked}}
 	{{/each}}
 
 	{{#if isFinish}}
-		<h3>Juego Terminado!! Ganaste Campeon!</h3>
+		<div class="game-finish">
+			<img src="img/pisku.svg" class="bounce pisku pisku-anim" width="250px">
+			<h3>¡¡Felicitaciones!!</h3>
+			{{#link-to 'index' class='ui button orange large'}} 
+				volver a jugar
+			{{/link-to}}
+		</div>
 	{{/if}}
 </div>

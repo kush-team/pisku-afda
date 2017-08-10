@@ -28,7 +28,7 @@ export default Ember.Component.extend({
 						flipCount[0].set('flipped', false);
 						flipCount[1].set('flipped', false);
 						_this.set('cardsBloked', false);
-					}, 1500);
+					}, 1100);
 				}
 			}
 		}
