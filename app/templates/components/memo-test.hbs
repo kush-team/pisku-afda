@@ -1,15 +1,19 @@
 <div class="memotest">
 	{{#each cards as |card|}}
+		<div class="card-animation animated bounceInUp">
 		{{memo-card class="card" model=card flipped='flipped' bloked=cardsBloked}}
+		</div>
 	{{/each}}
 
 	{{#if isFinish}}
-		<div class="game-finish">
-			<img src="img/pisku.svg" class="bounce pisku pisku-anim" width="250px">
+		<div class="game-finish animated fadeIn">
+			<div class="animated bounceInUp">
+				<img src="img/pisku.svg" class="bounce pisku pisku-anim" width="150px">
 			<h3>¡¡Felicitaciones!!</h3>
 			{{#link-to 'index' class='ui button orange large'}} 
 				volver a jugar
 			{{/link-to}}
+			</div>
 		</div>
 	{{/if}}
 </div>

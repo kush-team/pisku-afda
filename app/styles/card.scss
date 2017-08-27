@@ -2,6 +2,25 @@ $mobile: new-breakpoint(max-width 400px 6);
 $vertical: new-breakpoint(max-width 700px 6);
 $tablet: new-breakpoint(max-width 1025px 6);
 
+.memotest {
+.card-animation:nth-child(1) { animation-delay: .1s }
+.card-animation:nth-child(2) { animation-delay: .15s }
+.card-animation:nth-child(3) { animation-delay: .2s }
+.card-animation:nth-child(4) { animation-delay: .25s }
+.card-animation:nth-child(5) { animation-delay: .3s }
+.card-animation:nth-child(6) { animation-delay: .35s }
+.card-animation:nth-child(7) { animation-delay: .4s }
+.card-animation:nth-child(8) { animation-delay: .45s }
+.card-animation:nth-child(9) { animation-delay: .5s }
+.card-animation:nth-child(10) { animation-delay: .55s }
+.card-animation:nth-child(11) { animation-delay: .6s }
+.card-animation:nth-child(12) { animation-delay: .65s }
+.card-animation:nth-child(13) { animation-delay: .7s }
+.card-animation:nth-child(14) { animation-delay: .75s }
+.card-animation:nth-child(15) { animation-delay: .8s }
+.card-animation:nth-child(16) { animation-delay: .85s }
+}
+
 .flipper {
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;

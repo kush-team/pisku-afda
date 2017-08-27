@@ -140,7 +140,7 @@ $tablet: new-breakpoint(max-width 1025px 6);
 
  .ingame {
  	height: calc(100vh - 70px);
- 	overflow: hidden;
+ 	//overflow: hidden;
 
  	h2 {
  		width: 100%;
@@ -255,16 +255,30 @@ $tablet: new-breakpoint(max-width 1025px 6);
  }
 
  .game-finish {
-     position: fixed;
-     top: 0;
-     left: 0;
-     right: 0;
-     bottom: 0;
-     background: rgba(84, 154, 212, 0.9);
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-direction: column;
+ 	position: fixed;
+ 	top: 0;
+ 	left: 0;
+ 	right: 0;
+ 	bottom: 0;
+ 	background: rgba(84, 154, 212, .9);
+    animation-duration: .2s;
+
+
+	.animated {
+		position: fixed;
+    //background: #df222e;
+    left: 25vw;
+    right: 25vw;
+    top: 15vh;
+    bottom: 15vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 45px;
+    //border-radius: 45px;
+    //border: 2px solid #fff;
+    animation-delay: .2s;
+	}
 
      .pisku {
          margin-left: 22px;
