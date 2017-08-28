@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	model: function () {
 		var cards = [];
-		var piezas = ['piezas-1', 'piezas-2', 'piezas-3', 'piezas-4', 'piezas-5', 'piezas-6', 'piezas-7', 'piezas-8'];
+		var piezas = ['piezas-1', 'piezas-2', 'piezas-3'];
 
 		piezas.forEach(function (pieza) {
 			cards.push(this.store.createRecord('card', {className: pieza, flipped: false, bloked: false}));

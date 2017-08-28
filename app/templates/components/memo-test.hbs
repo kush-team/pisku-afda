@@ -1,4 +1,6 @@
 <div class="memotest">
+	Level 1
+	<h2>Puntos: {{points}} <br> {{#if combo}} Combo {{combo}}+ {{/if}}</h2>
 	{{#each cards as |card|}}
 		<div class="card-animation animated bounceInUp">
 		{{memo-card class="card" model=card flipped='flipped' bloked=cardsBloked}}
@@ -10,6 +12,7 @@
 			<div class="animated bounceInUp">
 				<img src="img/pisku.svg" class="bounce pisku pisku-anim" width="150px">
 			<h3>¡¡Felicitaciones!!</h3>
+			<h2>Puntaje: {{points}}</h2>
 			{{#link-to 'index' class='ui button orange large'}} 
 				volver a jugar
 			{{/link-to}}

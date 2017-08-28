@@ -4,6 +4,8 @@ export default Ember.Component.extend({
 	cards: null,
 	flipCount: 0,
 	cardsBloked: false,
+	points: 0,
+	combo: 0,
 
 	isFinish: Ember.computed('cards.@each.bloked', function () {
 		var cardsBloked = this.get('cards').filterProperty('bloked', true);
@@ -18,6 +20,8 @@ export default Ember.Component.extend({
 			if (flipCount.length === 2) {
 				this.set('cardsBloked', true);
 				if (flipCount[0].get('className') === flipCount[1].get('className')) {
+					this.set('combo', this.get('combo') + 1);
+					this.set('points', this.get('points') + this.get('combo') * 50)
 					flipCount[0].set('bloked', true);
 					flipCount[0].set('flipped', false);
 					flipCount[1].set('bloked', true);
@@ -25,6 +29,7 @@ export default Ember.Component.extend({
 					this.set('cardsBloked', false);
 				} else {
 					Ember.run.later(function () {
+						_this.set('combo', 0);
 						flipCount[0].set('flipped', false);
 						flipCount[1].set('flipped', false);
 						_this.set('cardsBloked', false);
