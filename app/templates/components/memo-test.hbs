@@ -1,6 +1,21 @@
+<nav>
+	<div class="level">
+		Nivel 1
+	</div>
+	<div class="points">
+		{{points}} pts.
+	</div>
+	<div class="combo">
+		{{#if combo}}
+			<div class="animated bounceInDown"> Combo {{combo}}+ </div>
+		{{/if}}
+	</div>
+	<a class="go-back">
+		ll
+	</a>
+</nav>
+
 <div class="memotest">
-	Level 1
-	<h2>Puntos: {{points}} <br> {{#if combo}} Combo {{combo}}+ {{/if}}</h2>
 	{{#each cards as |card|}}
 		<div class="card-animation animated bounceInUp">
 		{{memo-card class="card" model=card flipped='flipped' bloked=cardsBloked}}
@@ -11,12 +26,34 @@
 		<div class="game-finish animated fadeIn">
 			<div class="animated bounceInUp">
 				<img src="img/pisku.svg" class="bounce pisku pisku-anim" width="150px">
-			<h3>¡¡Felicitaciones!!</h3>
 			<h2>Puntaje: {{points}}</h2>
-			{{#link-to 'index' class='ui button orange large'}} 
-				volver a jugar
+
+			{{#link-to 'index' class='game-home'}} 
+				<i class="fa fa-home" aria-hidden="true"></i>
+			{{/link-to}}
+			{{#link-to 'index' class='game-next'}} 
+				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
 			{{/link-to}}
 			</div>
 		</div>
 	{{/if}}
+	{{#if isPause}}
+
+	<div class="game-pause animated fadeIn">
+		<div class="animated bounceInUp">
+			<h1>Juego en pausa</h1>
+			<h2>Mejor Puntaje: {{points}}</h2>
+			{{#link-to 'index' class='game-volume'}} 
+				<i class="fa fa-volume-up" aria-hidden="true"></i>
+			{{/link-to}}
+			{{#link-to 'index' class='game-home'}} 
+				<i class="fa fa-home" aria-hidden="true"></i>
+			{{/link-to}}
+			{{#link-to 'index' class='game-next'}} 
+				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+			{{/link-to}}
+		</div>
+	</div>
+	{{/if}}
+	
 </div>

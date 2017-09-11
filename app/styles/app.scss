@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500|Alegreya+Sans:300,400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Chewy');
 @import 'bower_components/bourbon/app/assets/stylesheets/bourbon';
 @import 'bower_components/neat/app/assets/stylesheets/neat';
 
@@ -8,11 +8,13 @@
 $mobile: new-breakpoint(max-width 400px 6);
 $vertical: new-breakpoint(max-width 700px 6);
 $tablet: new-breakpoint(max-width 1025px 6);
+$horizonal: new-breakpoint(max-height 500px 6);
 
 
  body {
  	background-color: #21b49b;
- 	padding-top: 70px;
+ 	//padding-top: 70px;
+	overflow: hidden !important;
  }
 
  body:before {
@@ -30,24 +32,19 @@ $tablet: new-breakpoint(max-width 1025px 6);
 
 .button {
 	background: #f8aa1f !important;
-	font-family: 'Alegreya Sans SC', sans-serif !important;
+	font-family: 'Chewy', sans-serif !important;
 	color: #fff !important;
 
 }
 
  nav {
+		
  	position: fixed;
- 	top: 5px;
+ 	top: 0px;
  	left: 0;
  	right: 0;
- 	height: 50px;
- 	//background: #f9f9f9;
- 	display: flex;
- 	flex-direction: column;
- 	align-items: center;
- 	padding: 0 15px;
- 	//box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
- 	z-index: 1;
+ 	height: 60px;
+
 
  
 
@@ -91,21 +88,7 @@ $tablet: new-breakpoint(max-width 1025px 6);
 }
 
 
- .go-back {
- 	position: fixed;
- 	top: 5px;
- 	right: 10px;
- 	z-index: 2;
- 	font-size: 29px;
- 	color: #fff;
- 	background: #f8aa1f;
- 	width: 50px;
- 	height: 50px;
- 	border-radius: 15px;
- 	display: flex;
- 	align-items: center;
- 	justify-content: center;
- }
+
 
  .intro {
  	max-width: 500px;
@@ -114,13 +97,13 @@ $tablet: new-breakpoint(max-width 1025px 6);
  	flex-direction: column;
  	align-items: center;
  	justify-content: center;
- 	height: calc(100vh - 100px);
+ 	height: 100vh;
 
  	.title {
  		color: #fff;
  		font-size: 35px;
  		font-weight: 100;
- 		font-family: 'Alegreya Sans', sans-serif !important;
+ 		font-family: 'Chewy', sans-serif !important;
  		margin: 20px;
  		text-align: center;
  		line-height: 41px;
@@ -139,15 +122,15 @@ $tablet: new-breakpoint(max-width 1025px 6);
  }
 
  .ingame {
- 	height: calc(100vh - 70px);
- 	//overflow: hidden;
+ 	height: 100vh;
+ 	overflow: hidden;
 
  	h2 {
  		width: 100%;
  		text-align: center;
  		color: #f9f9f9;
  		font-weight: 300;
- 		font-family: 'Alegreya Sans', sans-serif !important;
+ 		font-family: 'Chewy', sans-serif !important;
  		font-size: 28px;
  		top: 13px;
  	}
@@ -205,23 +188,23 @@ $tablet: new-breakpoint(max-width 1025px 6);
 
 
  .memotest {
- 	max-width: 1080px;
- 	padding: 0 4em;
+ 	max-width: 900px;
+ 	padding: 0;
  	margin: 0 auto;
  	display: flex;
  	flex-wrap: wrap;
  	flex-direction: row;
  	justify-content: center;
- 	height: calc(100vh - 70px);
+ 	height: 100vh;
  	align-content: center;
+    align-items: center;
 
 
  	@include media($vertical) {
- 		align-content: flex-start;
+ 		align-content: center;
  		padding: 5px;
  		max-width: 100%;
  		margin: 0;
- 		height: calc(100vh - 80px);
 	}
 
  	.card {
@@ -237,10 +220,17 @@ $tablet: new-breakpoint(max-width 1025px 6);
 
  		img {
  			width: 100%;
+ 			height: 100%;
  		}
 
  		
  	}
+ }
+
+ .game-start {
+ 	font-size: 20px !important;
+ 	text-transform: uppercase !important;
+ 	letter-spacing: 1px;
  }
 
  .settings-container {
@@ -266,30 +256,142 @@ $tablet: new-breakpoint(max-width 1025px 6);
 
 	.animated {
 		position: fixed;
-    //background: #df222e;
-    left: 25vw;
-    right: 25vw;
-    top: 15vh;
-    bottom: 15vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 45px;
-    //border-radius: 45px;
-    //border: 2px solid #fff;
-    animation-delay: .2s;
+		left: calc(50vw - 200px);
+		top: calc(50vh - 150px);
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		padding-top: 90px;
+		animation-delay: .2s;
+		background: #ef7004;
+		border-radius: 30px;
+		border: 20px solid #f7a91e;
+		min-height: 300px;
+		width: 400px;
 	}
 
+
+	.game-home {
+	position: absolute;
+	left: 40px;
+	bottom: -40px;
+	font-size: 30px;
+	background: white;
+	padding: 20px 30px;
+	border-radius: 20px;
+	color: #f7a91e;
+	}
+
+	.game-volume {
+	font-size: 30px;
+	background: white;
+	padding: 20px 30px;
+	border-radius: 20px;
+	color: #f7a91e;
+	}
+
+	.game-next {
+	position: absolute;
+	right: 40px;
+	bottom: -40px;
+	font-size: 30px;
+	background: white;
+	padding: 20px 30px;
+	border-radius: 20px;
+	color: #f7a91e;
+	}
+
+
      .pisku {
-         margin-left: 22px;
+		position: absolute;
+		top: -40px;
      }
 
-     h3 {
+     h2 {
      	color: #fff;
-     	font-size: 25px;
+     	font-size: 35px;
      	text-align: center;
+     	margin: 0;
      }
+
+
+
+
+     
  }
+
+ .game-pause {
+ 		position: fixed;
+ 		top: 0;
+ 		left: 0;
+ 		right: 0;
+ 		bottom: 0;
+ 		background: rgba(84, 154, 212, .9);
+ 	   animation-duration: .2s;
+ 	.animated {
+
+ 	position: fixed;
+ 	left: calc(50vw - 200px);
+ 	top: calc(50vh - 150px);
+ 	display: flex;
+ 	align-items: center;
+ 	flex-direction: column;
+ 	padding-top: 0;
+ 	animation-delay: .2s;
+ 	background: #d90244;
+ 	border-radius: 30px;
+ 	border: 20px solid #eb1984;
+ 	min-height: 300px;
+ 	width: 400px;
+ 	border-top: 70px solid #eb1984;
+
+ 	h1 {
+ 		color: #fff;
+ 		font-size: 40px;
+ 		text-align: center;
+ 		margin: 0;
+ 		font-family: 'Chewy', cursive;
+ 		text-transform: uppercase;
+ 		position: absolute;
+ 		top: -57px;
+ 	}
+	
+
+ 	.game-home {
+ 	position: absolute;
+ 	left: 40px;
+ 	bottom: -40px;
+ 	font-size: 30px;
+ 	background: white;
+ 	padding: 20px 30px;
+ 	border-radius: 20px;
+ 	color: #eb1984;
+ 	}
+
+ 	.game-volume {
+ 		font-size: 30px;
+ 		background: white;
+ 		padding: 20px 30px;
+ 		border-radius: 20px;
+ 		color: #eb1984;
+ 		position: absolute;
+ 		bottom: -40px;
+ 	}
+
+ 	.game-next {
+ 	position: absolute;
+ 	right: 40px;
+ 	bottom: -40px;
+ 	font-size: 30px;
+ 	background: white;
+ 	padding: 20px 30px;
+ 	border-radius: 20px;
+ 	color: #eb1984;
+ 	}
+ 	}
+ }
+
+
 
 .pisku-anim {
 	animation-duration: 2s;
@@ -297,3 +399,77 @@ $tablet: new-breakpoint(max-width 1025px 6);
 	animation-iteration-count: infinite;
 }
 
+.level {
+	font-family: 'Chewy', cursive;
+	font-size: 40px;
+	position: fixed;
+	top: -10px;
+	background: #f8aa1f;
+	left: 15px;
+	padding: 30px 20px 20px 20px;
+	color: #fff;
+	border-radius: 15px;
+}
+
+.points {
+	font-family: 'Chewy', cursive;
+	font-size: 30px;
+	position: fixed;
+	top: -10px;
+	background: #f8aa1f;
+	left: 200px;
+	padding: 30px 0 20px 0;
+	color: #fff;
+	border-radius: 15px;
+	text-align: center;
+	width: 170px;
+}
+
+.combo {
+	font-size: 50px;
+	font-family: 'Chewy', cursive;
+	position: fixed;
+	top: 40px;
+	right: 0;
+	color: #fff;
+	width: 300px;
+	text-align: center;
+
+ 	@include media($mobile) {
+	width: 100%;
+	top: 92px;
+	}
+
+	@include media($horizonal) {
+	top:20px ;
+	font-size: 40px;
+	width: 150px;
+	}
+}
+
+ .go-back {
+ 	font-family: 'Chewy', cursive;
+ 	position: fixed;
+ 	left: 10px;
+ 	bottom: 5px;
+ 	z-index: 2;
+ 	font-size: 39px;
+ 	color: #fff;
+ 	background: #ec1187;
+ 	width: 70px;
+ 	height: 60px;
+ 	border-radius: 15px;
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: center;
+ 	-webkit-transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+ 	-moz-transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+ 	transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+ 	cursor: pointer;
+
+ 	&:hover {
+ 		background: #c31f78;
+ 		color: #fff;
+ 	}
+
+ }
