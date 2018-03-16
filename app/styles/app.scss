@@ -320,6 +320,17 @@ $horizonal: new-breakpoint(max-height 500px 6);
      
  }
 
+ .game-volume {
+font-size: 30px;
+background: white;
+padding: 20px 30px;
+border-radius: 20px;
+color: #f7a91e;
+position: fixed;
+bottom: 0;
+right:0;
+}
+
  .game-pause {
  		position: fixed;
  		top: 0;

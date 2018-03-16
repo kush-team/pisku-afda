@@ -5,6 +5,34 @@
 	 xml:space="preserve">
 <defs>
 </defs>
+<style>
+	.pisku-eye {
+		transform-origin: 50% 25%;
+		animation-name: ckw;
+	    animation-iteration-count: infinite;
+	    animation-duration: 3s;
+	}
+
+	@keyframes ckw {
+	    0% {
+	       transform: scaleY(1)
+	    }
+
+		85% {
+		 transform: scaleY(1)	
+		}
+
+
+		90% {
+		 transform: scaleY(0)	
+		}
+
+	    100% {
+	       transform: scaleY(1)
+	        
+	    }
+	}
+</style>
 <g>
 	<g>
 		<polygon fill="#F7B119" points="156.5,18.5 160.6,29.3 188,25.1 		"/>
@@ -13,7 +41,10 @@
 	<path fill="#FFFFFF" d="M167.3,45c0,21.7-15.7,34.1-15.7,34.1s-64.7,61.3-65.1,61.6c-0.3,0.4-1.5,1.7-2.9,1.7
 		c-1.5,0-2.6-1.4-2.9-1.7S15.7,79.1,15.7,79.1S0,66.7,0,45C0,23.3,17.6,0,46.2,0c25.4,0,37.5,20.2,37.5,20.2S95.7,0,121.1,0
 		C149.7,0,167.3,23.3,167.3,45z"/>
-	<circle fill="#DF222E" cx="139.1" cy="34.5" r="12.4"/>
-	<circle fill="#FFFFFF" cx="143.3" cy="33" r="3.4"/>
+	<g class="pisku-eye">
+		<circle fill="#DF222E" cx="139.1" cy="34.5" r="12.4"/>
+		<circle fill="#FFFFFF" cx="143.3" cy="33" r="3.4"/>
+	</g>
+	
 </g>
 </svg>
