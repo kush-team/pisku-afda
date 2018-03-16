@@ -3,16 +3,21 @@
 		{{currentLevel.mame}} {{currentLevel.title}}
 	</div>
 	<div class="points">
-		{{points}} pts.
+		{{totalPoints}} pts.
+	</div>
+	<div class="timers">
+		{{duration}} {{percentTimer}} {{currentLevel.time}}
 	</div>
 	<div class="combo">
 		{{#if combo}}
 			<div class="animated bounceInDown"> Combo {{combo}}+ </div>
 		{{/if}}
 	</div>
-	<a class="go-back">
+
+	<a class="go-back" {{action 'pause'}}>
 		ll
 	</a>
+
 </nav>
 
 <div class="memotest">
@@ -24,10 +29,18 @@
 
 	{{#if isFinish}}
 		<div class="game-finish animated fadeIn">
+			{{#if isWin}}
+				Ganaste!
+			{{/if}}
+			{{#if isLost}}
+				Perdiste!
+			{{/if}}
 			<div class="animated bounceInUp">
 				<img src="img/pisku.svg" class="bounce pisku pisku-anim" width="150px">
-			<h2>Puntaje: {{points}}</h2>
-
+				<span>Puntaje: {{points}}</span>
+				<span>Bonus: {{pointsBonus}} ({{reminder}} segs)</span>
+				<h2>Total: {{totalPoints}}</h2>
+			
 			{{#link-to 'index' class='game-home'}} 
 				<i class="fa fa-home" aria-hidden="true"></i>
 			{{/link-to}}
@@ -52,7 +65,7 @@
 				{{#link-to 'index' class='game-home'}} 
 					<i class="fa fa-home" aria-hidden="true"></i>
 				{{/link-to}}
-				<a {{action 'next'}} class="game-next">
+				<a {{action 'resume'}} class="game-next">
 					<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
 				</a>
 			</div>

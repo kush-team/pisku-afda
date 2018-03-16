@@ -5,5 +5,6 @@ export default DS.Model.extend({
 	title: DS.attr('string'),
 	total: DS.attr('number'),
 	comboModifier: DS.attr('number'),
+	time: DS.attr('number'),
 	cards: DS.hasMany('card')
 });

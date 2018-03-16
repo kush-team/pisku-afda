@@ -13,16 +13,19 @@ export default Ember.Route.extend({
 				name: 'Lvl 1',
 				title: 'Nivel Inicial',
 				modifier: 50,
+				time: 30,
 				total: 2
 			}, {
 				name: 'Lvl 2',
 				title: 'Nivel Intermedio',
 				modifier: 200,
+				time: 50,
 				total: 4
 			}, {
 				name: 'Lvl 3',
 				title: 'Nivel Final',
 				modifier: 1000,
+				time: 120,
 				total: 8
 			}]
 		};
@@ -33,6 +36,7 @@ export default Ember.Route.extend({
 				name: lvl.name,
 				title: lvl.title,
 				total: lvl.total,
+				time: lvl.time,
 				comboModifier: lvl.modifier,
 				cards: suffle(suffle(suffle(createCards(data.cards, lvl.total, store))))
 			}));

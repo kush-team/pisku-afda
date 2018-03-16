@@ -7,8 +7,46 @@ export default Ember.Component.extend({
 	combo: 0,
 	lvlIndex: 0,
 	levels: null,
+	interval: null,
+	intervalValue: 1000,
+	duration: 0,
+	totalPoints: 0,
+	isPause: false,
 
-	isFinish: Ember.computed('cards.@each.bloked', function () {
+
+
+
+	init: function () {
+		this._super();
+		this.resetTimers();
+	},
+
+
+	isLost: Ember.computed('duration', 'currentLevel.time', function () {
+		if (this.get('duration') >= this.get('currentLevel').get('time')) {
+			return true;
+		} else {
+			return false;
+		}
+	}),
+
+
+	isFinish: Ember.computed('isLost', 'isWin', function () {
+		if (this.get('isLost') | this.get('isWin')) {
+
+			if (this.get('isWin')) {
+				this.set('pointsBonus', this.get('reminder') * this.get('currentLevel').get('comboModifier') / 10);
+				this.set('totalPoints', this.get('totalPoints') + this.get('pointsBonus'));
+			}
+			this.stopTimers();
+			return true;
+		}
+		else {
+			return  false;
+		}
+	}), 
+
+	isWin: Ember.computed('cards.@each.bloked', function () {
 		var cardsBloked = this.get('cards').filterProperty('bloked', true);
 		return cardsBloked.length === this.get('cards').length;
 	}), 
@@ -37,11 +75,76 @@ export default Ember.Component.extend({
 		}
 	}),
 
+
+	reminder: Ember.computed('duration', 'currentLevel.time', function () {
+		return this.get('currentLevel').get('time') - this.get('duration');
+	}),
+
+
+	percentTimer: Ember.computed('duration', function () {
+		return Math.floor(this.get('duration') / this.get('currentLevel').get('time') * 100);
+	}),
+
+	tick: function (scope) {
+		scope.set('duration', scope.get('duration') + 1);
+	},
+
+	stopTimers: function () {
+		var interval  = this.get('interval');
+		if (interval) {
+			clearInterval(this.get('interval'));
+		}		
+	},
+
+	resetTimers: function () {
+		var scope  = this;
+		var interval  = this.get('interval');
+		var intervalValue  = this.get('intervalValue');
+		var tick = this.tick;
+		if (interval) {
+			clearInterval(this.get('interval'));
+		}
+		this.set('duration', 0);
+
+		interval = setInterval(function() {
+			tick(scope);
+		}, intervalValue);
+
+		this.set('interval', interval);
+	},
+
 	actions: {
+
 		next: function () {
 			if (this.get('hasNextLevel')) {
 				this.set('lvlIndex', this.get('lvlIndex') + 1);
 			}
+			this.resetTimers();
+		},
+
+		pause: function () {
+			var interval  = this.get('interval');
+			if (interval) {
+				clearInterval(this.get('interval'));
+			}
+			this.set('isPause', true);
+		},
+
+		resume: function () {
+			var scope  = this;
+			var interval  = this.get('interval');
+			var intervalValue  = this.get('intervalValue');
+			var tick = this.tick;
+			if (interval) {
+				clearInterval(this.get('interval'));
+			}
+
+			interval = setInterval(function() {
+				tick(scope);
+			}, intervalValue);
+
+			this.set('interval', interval);
+			this.set('isPause', false);
 		},
 
 		flipped: function (card) {
@@ -54,7 +157,8 @@ export default Ember.Component.extend({
 				this.set('cardsBloked', true);
 				if (flipCount[0].get('className') === flipCount[1].get('className')) {
 					this.set('combo', this.get('combo') + 1);
-					this.set('points', this.get('points') + this.get('combo') * modifier)
+					this.set('points', this.get('points') + this.get('combo') * modifier);
+					this.set('totalPoints', this.get('points'));
 					flipCount[0].set('bloked', true);
 					flipCount[0].set('flipped', false);
 					flipCount[1].set('bloked', true);
