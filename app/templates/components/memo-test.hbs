@@ -1,6 +1,6 @@
 <nav>
 	<div class="level">
-		Nivel 1
+		{{currentLevel.mame}} {{currentLevel.title}}
 	</div>
 	<div class="points">
 		{{points}} pts.
@@ -31,29 +31,32 @@
 			{{#link-to 'index' class='game-home'}} 
 				<i class="fa fa-home" aria-hidden="true"></i>
 			{{/link-to}}
-			{{#link-to 'index' class='game-next'}} 
-				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-			{{/link-to}}
+			{{#if hasNextLevel}}
+				<a {{action 'next'}} class="game-next">
+					<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+				</a>
+			{{else}}
+				Terminaste!
+			{{/if}}
 			</div>
 		</div>
 	{{/if}}
 	{{#if isPause}}
-
-	<div class="game-pause animated fadeIn">
-		<div class="animated bounceInUp">
-			<h1>Juego en pausa</h1>
-			<h2>Mejor Puntaje: {{points}}</h2>
-			{{#link-to 'index' class='game-volume'}} 
-				<i class="fa fa-volume-up" aria-hidden="true"></i>
-			{{/link-to}}
-			{{#link-to 'index' class='game-home'}} 
-				<i class="fa fa-home" aria-hidden="true"></i>
-			{{/link-to}}
-			{{#link-to 'index' class='game-next'}} 
-				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-			{{/link-to}}
+		<div class="game-pause animated fadeIn">
+			<div class="animated bounceInUp">
+				<h1>Juego en pausa</h1>
+				<h2>Mejor Puntaje: {{points}}</h2>
+				{{#link-to 'index' class='game-volume'}} 
+					<i class="fa fa-volume-up" aria-hidden="true"></i>
+				{{/link-to}}
+				{{#link-to 'index' class='game-home'}} 
+					<i class="fa fa-home" aria-hidden="true"></i>
+				{{/link-to}}
+				<a {{action 'next'}} class="game-next">
+					<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+				</a>
+			</div>
 		</div>
-	</div>
 	{{/if}}
 	
 </div>
