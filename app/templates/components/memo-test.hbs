@@ -6,7 +6,12 @@
 		{{totalPoints}} pts.
 	</div>
 	<div class="timers">
-		{{duration}} {{percentTimer}} {{currentLevel.time}}
+		<div class="progress-bar">
+			<span style="width: {{percentTimer}}%"></span>
+		</div>
+		<div class="count">
+			{{duration}} / {{currentLevel.time}}seg
+		</div>
 	</div>
 	<div class="combo">
 		{{#if combo}}
@@ -29,14 +34,17 @@
 
 	{{#if isFinish}}
 		<div class="game-finish animated fadeIn">
-			{{#if isWin}}
-				Ganaste!
-			{{/if}}
-			{{#if isLost}}
-				Perdiste!
-			{{/if}}
 			<div class="animated bounceInUp">
 				<img src="img/pisku.svg" class="bounce pisku pisku-anim" width="150px">
+				{{#if isWin}}
+					Ganaste!
+					<audio src="/img/win.mp3" autoplay>
+					<p>If you are reading this, it is because your browser does not support the audio element.     </p>
+					</audio>
+				{{/if}}
+				{{#if isLost}}
+					Perdiste!
+				{{/if}}
 				<span>Puntaje: {{points}}</span>
 				<span>Bonus: {{pointsBonus}} ({{reminder}} segs)</span>
 				<h2>Total: {{totalPoints}}</h2>
@@ -58,7 +66,7 @@
 		<div class="game-pause animated fadeIn">
 			<div class="animated bounceInUp">
 				<h1>Juego en pausa</h1>
-				<h2>Mejor Puntaje: {{points}}</h2>
+				<h2>Mejor Puntaje: {{totalPoints}}</h2>
 				{{#link-to 'index' class='game-volume'}} 
 					<i class="fa fa-volume-up" aria-hidden="true"></i>
 				{{/link-to}}

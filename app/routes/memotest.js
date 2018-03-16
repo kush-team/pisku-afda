@@ -11,19 +11,43 @@ export default Ember.Route.extend({
 			
 			levels: [{
 				name: 'Lvl 1',
-				title: 'Nivel Inicial',
+				title: 'Nivel 1',
 				modifier: 50,
-				time: 30,
+				time: 20,
 				total: 2
 			}, {
 				name: 'Lvl 2',
-				title: 'Nivel Intermedio',
+				title: 'Nivel 2',
+				modifier: 200,
+				time: 50,
+				total: 3
+			}, {
+				name: 'Lvl 3',
+				title: 'Nivel 3',
 				modifier: 200,
 				time: 50,
 				total: 4
 			}, {
-				name: 'Lvl 3',
-				title: 'Nivel Final',
+				name: 'Lvl 4',
+				title: 'Nivel 4',
+				modifier: 200,
+				time: 50,
+				total: 5
+			}, {
+				name: 'Lvl 5',
+				title: 'Nivel 5',
+				modifier: 200,
+				time: 50,
+				total: 6
+			}, {
+				name: 'Lvl 6',
+				title: 'Nivel 6',
+				modifier: 200,
+				time: 50,
+				total: 7
+			}, {
+				name: 'Lvl 8',
+				title: 'Nivel 8',
 				modifier: 1000,
 				time: 120,
 				total: 8
