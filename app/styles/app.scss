@@ -12,7 +12,28 @@ $horizonal: new-breakpoint(max-height 500px 6);
 
 
  body {
- 	background-color: #21b49b;
+ 	background: linear-gradient(90deg, #f9aa1f, #92c643, #656fb2, #15b69c, #eb1187, #f9aa1f);
+background-size: 1200% 1200%;
+
+-webkit-animation: AnimationName 150s ease infinite;
+-moz-animation: AnimationName 150s ease infinite;
+animation: AnimationName 150s ease infinite;
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:45% 0%}
+    50%{background-position:56% 100%}
+    100%{background-position:45% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:45% 0%}
+    50%{background-position:56% 100%}
+    100%{background-position:45% 0%}
+}
+@keyframes AnimationName { 
+    0%{background-position:45% 0%}
+    50%{background-position:56% 100%}
+    100%{background-position:45% 0%}
+}
  	//padding-top: 70px;
 	overflow: hidden !important;
  }
@@ -26,8 +47,9 @@ $horizonal: new-breakpoint(max-height 500px 6);
  	bottom: 0;
  	background: rgba(51, 51, 51, .1);
  	z-index: -1;
- 	background-image: url(http://afda.com.ar/wp-content/uploads/back-memotest.jpg);
+ 	background-image: url(/img/back-game.jpg);
  	background-size: cover;
+ 	opacity:.4
  }
 
 .button {
