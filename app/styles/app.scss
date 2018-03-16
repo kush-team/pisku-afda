@@ -321,6 +321,7 @@ animation: AnimationName 150s ease infinite;
 	padding: 20px 30px;
 	border-radius: 20px;
 	color: #f7a91e;
+	cursor: pointer;
 	}
 
 
@@ -344,13 +345,15 @@ animation: AnimationName 150s ease infinite;
 
  .game-volume {
 font-size: 30px;
-background: white;
-padding: 20px 30px;
+background: #ec1187;
+padding: 20px 23px;
 border-radius: 20px;
-color: #f7a91e;
+color: white !important;
 position: fixed;
-bottom: 0;
-right:0;
+bottom: 5px;
+right: 10px;
+cursor: pointer;
+
 }
 
  .game-pause {
@@ -505,8 +508,8 @@ right:0;
 	font-size: 50px;
 	font-family: 'Chewy', cursive;
 	position: fixed;
-	top: 40px;
-	right: 50%;
+	top: 150px;
+	right: 0;
 	color: #fff;
 	width: 300px;
 	text-align: center;
