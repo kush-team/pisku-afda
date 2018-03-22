@@ -47,7 +47,7 @@ animation: AnimationName 150s ease infinite;
  	bottom: 0;
  	background: rgba(51, 51, 51, .1);
  	z-index: -1;
- 	background-image: url(/img/back-game.jpg);
+ 	background-image: url(../img/back-game.jpg);
  	background-size: cover;
  	opacity:.4
  }
@@ -66,6 +66,29 @@ animation: AnimationName 150s ease infinite;
  	left: 0;
  	right: 0;
  	height: 60px;
+
+ 	&.nivel-1 {
+ 		.progress-bar{
+			background: #92c643;
+			span { background: #f8aa1f; }
+ 		}
+	}
+
+	&.nivel-4,
+	&.nivel-5 {
+ 		.progress-bar{
+			background: #666fb2;
+			span { background: #92c643; }
+ 		}
+	}
+
+	&.nivel-6,
+	&.nivel-7 {
+ 		.progress-bar{
+			background: #f8aa1f;
+			span { background: #92c643; }
+ 		}
+	}
 
 
  
@@ -211,7 +234,7 @@ animation: AnimationName 150s ease infinite;
 
  .memotest {
  	max-width: 900px;
- 	padding: 0;
+ 	padding: 60px 0 0 0;
  	margin: 0 auto;
  	display: flex;
  	flex-wrap: wrap;
@@ -221,6 +244,43 @@ animation: AnimationName 150s ease infinite;
  	align-content: center;
     align-items: center;
 
+    &.nivel-1 {
+    	
+	 	
+    }
+
+    &.nivel-2 {
+    	max-width: 450px;
+	 	@include media($tablet) {
+	 		max-width: 100%;
+		}
+    }
+
+    &.nivel-3 {
+    	max-width: 680px;
+	 	@include media($tablet) {
+	 		max-width: 100%;
+		}
+    }
+
+    &.nivel-4 {
+    	max-width: 780px;
+	 	@include media($tablet) {
+	 		max-width: 100%;
+		}
+    }
+
+    &.nivel-5 {
+
+    }
+
+    &.nivel-6 {
+    	padding-top: 110px;
+    }
+
+    &.nivel-7 {
+    	padding-top: 110px;
+    }
 
  	@include media($vertical) {
  		align-content: center;
@@ -290,6 +350,11 @@ animation: AnimationName 150s ease infinite;
 		border: 20px solid #f7a91e;
 		min-height: 300px;
 		width: 400px;
+
+		@include media($mobile) {
+		 	background: none;
+		 	border: none;
+		}
 	}
 
 
@@ -302,6 +367,9 @@ animation: AnimationName 150s ease infinite;
 	padding: 20px 30px;
 	border-radius: 20px;
 	color: #f7a91e;
+		@include media($mobile) {
+		 	left: 70px;
+		}
 	}
 
 	.game-volume {
@@ -322,6 +390,9 @@ animation: AnimationName 150s ease infinite;
 	border-radius: 20px;
 	color: #f7a91e;
 	cursor: pointer;
+		@include media($mobile) {
+		 	right: 70px;
+		}
 	}
 
 
@@ -380,6 +451,11 @@ cursor: pointer;
  	min-height: 300px;
  	width: 400px;
  	border-top: 70px solid #eb1984;
+ 	@include media($tablet) {
+ 		border: none;
+ 		padding-top: 70px;
+ 		background: none;
+ 	}
 
  	h1 {
  		color: #fff;
@@ -390,12 +466,15 @@ cursor: pointer;
  		text-transform: uppercase;
  		position: absolute;
  		top: -57px;
+ 		@include media($tablet) {
+	 		top: 0;
+	 	}
  	}
 	
 
  	.game-home {
  	position: absolute;
- 	left: 40px;
+ 	left: 70px;
  	bottom: -40px;
  	font-size: 30px;
  	background: white;
@@ -416,13 +495,14 @@ cursor: pointer;
 
  	.game-next {
  	position: absolute;
- 	right: 40px;
+ 	right: 70px;
  	bottom: -40px;
  	font-size: 30px;
  	background: white;
  	padding: 20px 30px;
  	border-radius: 20px;
  	color: #eb1984;
+ 	cursor: pointer;
  	}
  	}
  }
@@ -440,11 +520,18 @@ cursor: pointer;
 	font-size: 40px;
 	position: fixed;
 	top: -10px;
-	background: #f8aa1f;
+	//background: #f8aa1f;
 	left: 15px;
 	padding: 30px 20px 20px 20px;
 	color: #fff;
 	border-radius: 15px;
+	z-index: 1;
+
+	@include media($tablet) {
+	font-size: 25px;
+	}
+
+
 }
 
 .timers {
@@ -453,19 +540,24 @@ cursor: pointer;
 	position: fixed;
 	top: 0;
 	background: #f8aa1f;
-	right: 20px;
+	right: 0;
 	padding: 30px 0 20px 0;
 	color: #fff;
 	border-radius: 0 0 15px 15px;
 	text-align: center;
 	height: 60px;
-	width: 50%;
+	width: 100%;
+	left:0;
 	overflow: hidden;
 
 	.count {
 		position: absolute;
 		right: 10px;
 		top: 20px;
+
+		@include media($tablet) {
+		font-size: 25px;
+		}
 	}
 
 	.progress-bar {
@@ -479,13 +571,15 @@ cursor: pointer;
 		left: 0;
 		right: 0;
 
+
+
 		span {
 			height: 100%;
 			display: block;
 			background: #eb1187;
-			-webkit-transition: all 1.3s cubic-bezier(0.7, 0, 0.3, 1);
-			-moz-transition: all 1.3s cubic-bezier(0.7, 0, 0.3, 1);
-			transition: all 1.3s cubic-bezier(0.7, 0, 0.3, 1);
+			-webkit-transition: all .8s cubic-bezier(0.7, 0, 0.3, 1);
+			-moz-transition: all .8s cubic-bezier(0.7, 0, 0.3, 1);
+			transition: all .8s cubic-bezier(0.7, 0, 0.3, 1);
 		}
 	}
 }
@@ -494,36 +588,39 @@ cursor: pointer;
 	font-family: 'Chewy', cursive;
 	font-size: 30px;
 	position: fixed;
-	top: -10px;
-	background: #f8aa1f;
-	left: 200px;
+	//top: -10px;
+	//background: #f8aa1f;
+	left: calc(50vw - 85px);
 	padding: 30px 0 20px 0;
 	color: #fff;
 	border-radius: 15px;
 	text-align: center;
 	width: 170px;
+	//z-index: 1;
+	z-index: 0;
+ 	top: 48px;
+ 	background: #666fb2;
+
+	
 }
 
 .combo {
 	font-size: 50px;
 	font-family: 'Chewy', cursive;
 	position: fixed;
-	top: 150px;
-	right: 0;
+	bottom: 52px;
+	left: calc(50vw - 170px);
 	color: #fff;
 	width: 300px;
 	text-align: center;
 
- 	@include media($mobile) {
+ 	@include media($tablet) {
 	width: 100%;
-	top: 92px;
+	left: 0;
+	font-size: 45px;
 	}
 
-	@include media($horizonal) {
-	top:20px ;
-	font-size: 40px;
-	width: 150px;
-	}
+	
 }
 
  .go-back {

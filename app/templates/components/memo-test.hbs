@@ -1,6 +1,6 @@
-<nav>
+<nav class="{{currentLevel.lvlclass}}">
 	<div class="level">
-		{{currentLevel.mame}} {{currentLevel.title}}
+		{{currentLevel.title}}
 	</div>
 	<div class="points">
 		{{totalPoints}} pts.
@@ -15,7 +15,7 @@
 	</div>
 	<div class="combo">
 		{{#if combo}}
-			<div class="animated bounceInDown"> Combo {{combo}}+ </div>
+			<div class="animated bounceInUp"> Combo {{combo}}+ </div>
 		{{/if}}
 	</div>
 
@@ -25,7 +25,7 @@
 
 </nav>
 
-<div class="memotest">
+<div class="memotest {{currentLevel.lvlclass}}">
 	{{#each cards as |card|}}
 		<div class="card-animation animated bounceInUp">
 		{{memo-card class="card" model=card flipped='flipped' bloked=cardsBloked}}
@@ -37,12 +37,11 @@
 			<div class="animated bounceInUp">
 				<img src="img/pisku.svg" class="bounce pisku pisku-anim" width="150px">
 				{{#if isWin}}
-					Ganaste!
-					<audio src="/img/win.mp3" autoplay>
+					<h2>Ganaste!</h2>
+					<audio src="img/win.mp3" autoplay>
 					<p>If you are reading this, it is because your browser does not support the audio element.     </p>
 					</audio>
-					<span>Puntaje: {{points}}</span>
-					<span>Bonus: {{pointsBonus}} ({{reminder}} segs)</span>
+					<h2 style="font-size: 20px;">Puntaje: {{points}} + Bonus: {{pointsBonus}} ({{reminder}} segs)</h2>
 					<h2>Total: {{totalPoints}}</h2>
 					{{#link-to 'index' class='game-home'}} 
 						<i class="fa fa-home" aria-hidden="true"></i>
@@ -52,22 +51,17 @@
 							<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
 						</a>
 					{{else}}
-						Terminaste!
+						<h2>Has ganado!</h2>
 					{{/if}}
 				{{/if}}
 				{{#if isLost}}
-					Perdiste!
-					<span>Puntaje: {{points}}</span>
-					<span>Bonus: {{pointsBonus}} ({{reminder}} segs)</span>
+					<h2>Se acabó el tiempo!</h2>
+					<h2 style="font-size: 20px;">Puntaje: {{points}} + Bonus: {{pointsBonus}} ({{reminder}} segs)</h2>
 					<h2>Total: {{totalPoints}}</h2>
 					{{#link-to 'index' class='game-home'}} 
 						<i class="fa fa-home" aria-hidden="true"></i>
 					{{/link-to}}
 				{{/if}}
-				
-			
-			
-			
 			</div>
 		</div>
 	{{/if}}
@@ -75,7 +69,8 @@
 		<div class="game-pause animated fadeIn">
 			<div class="animated bounceInUp">
 				<h1>Juego en pausa</h1>
-				<h2>Mejor Puntaje: {{totalPoints}}</h2>
+				<h2>{{currentLevel.title}}</h2>
+				<h2>Puntaje: {{totalPoints}}</h2>
 				{{#link-to 'index' class='game-home'}} 
 					<i class="fa fa-home" aria-hidden="true"></i>
 				{{/link-to}}

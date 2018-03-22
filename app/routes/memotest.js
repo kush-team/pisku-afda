@@ -11,45 +11,52 @@ export default Ember.Route.extend({
 			
 			levels: [{
 				name: 'Lvl 1',
-				title: 'Nivel 1',
+				title: 'Nivel 1 - facil',
+				lvlclass: 'nivel-1',
 				modifier: 50,
-				time: 20,
+				time: 15,
 				total: 2
 			}, {
 				name: 'Lvl 2',
-				title: 'Nivel 2',
+				title: 'Nivel 2 - facil',
+				lvlclass: 'nivel-2',
 				modifier: 200,
-				time: 50,
+				time: 30,
 				total: 3
 			}, {
 				name: 'Lvl 3',
-				title: 'Nivel 3',
+				title: 'Nivel 3 - facil',
+				lvlclass: 'nivel-3',
 				modifier: 200,
-				time: 50,
+				time: 45,
 				total: 4
 			}, {
 				name: 'Lvl 4',
-				title: 'Nivel 4',
+				title: 'Nivel 4 - intermedio',
+				lvlclass: 'nivel-4',
 				modifier: 200,
-				time: 50,
+				time: 60,
 				total: 5
 			}, {
 				name: 'Lvl 5',
-				title: 'Nivel 5',
+				title: 'Nivel 5 - intermedio',
+				lvlclass: 'nivel-5',
 				modifier: 200,
-				time: 50,
+				time: 70,
 				total: 6
 			}, {
 				name: 'Lvl 6',
-				title: 'Nivel 6',
+				title: 'Nivel 6 - dificil',
+				lvlclass: 'nivel-6',
 				modifier: 200,
-				time: 50,
+				time: 80,
 				total: 7
 			}, {
-				name: 'Lvl 8',
-				title: 'Nivel 8',
+				name: 'Lvl 7',
+				title: 'Nivel 7 - dificil',
+				lvlclass: 'nivel-7',
 				modifier: 1000,
-				time: 120,
+				time: 90,
 				total: 8
 			}]
 		};
@@ -59,6 +66,7 @@ export default Ember.Route.extend({
 			levels.push(store.createRecord('level', {
 				name: lvl.name,
 				title: lvl.title,
+				lvlclass: lvl.lvlclass,
 				total: lvl.total,
 				time: lvl.time,
 				comboModifier: lvl.modifier,

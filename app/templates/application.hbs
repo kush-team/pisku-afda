@@ -1,8 +1,12 @@
-<a {{action 'pause'}} class='game-volume'>
-	<i class="fa fa-volume-up" aria-hidden="true"></i>
+<a {{action 'pause'}} class="game-volume">
+	{{#if isPaused}}
+		<i class="fa fa-volume-up" aria-hidden="true"></i>
+	{{else}}
+		<i class="fa fa-volume-down" aria-hidden="true"></i>
+	{{/if}}
 </a>
 
-<audio id="main-sound" src="/img/afda-ukelele.mp3" autoplay loop>
+<audio id="main-sound" src="img/afda-ukelele.mp3" autoplay loop>
 <p>If you are reading this, it is because your browser does not support the audio element.     </p>
 </audio>
 

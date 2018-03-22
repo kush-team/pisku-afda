@@ -34,20 +34,54 @@ $horizonal: new-breakpoint(max-height 500px 6);
   transition: 0.6s;
   position: relative;
 
-@include media($vertical) {
-width: 90px;
-height: 90px;
-}
+  @include media($vertical) {
+  width: 90px;
+  height: 90px;
+  }
 
-@include media($horizonal) {
-width: 70px;
-height: 70px;
-}
+  @include media($horizonal) {
+  width: 70px;
+  height: 70px;
+  }
 
-@include media($mobile) {
-width: 60px;
-height: 60px;
-}
+  @include media($mobile) {
+  width: 60px;
+  height: 60px;
+  }
+
+  .nivel-1 & {
+    width: 130px;
+    height: 130px;
+
+  }
+
+  .nivel-2 & {
+    width: 130px;
+    height: 130px;
+    @include media($mobile) {
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  .nivel-2 & {
+    width: 130px;
+    height: 130px;
+    @include media($vertical) {
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  .nivel-6 & {
+    width: 120px;
+    height: 120px;
+    @include media($vertical) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
 
 }
 .front, .back {
