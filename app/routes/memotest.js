@@ -12,10 +12,10 @@ export default Ember.Route.extend({
 			levels: [{
 				name: 'Lvl 1',
 				title: 'Nivel 1 - facil',
-				lvlclass: 'nivel-1',
+				lvlclass: 'nivel-7',
 				modifier: 50,
-				time: 15,
-				total: 2
+				time: 1511111111,
+				total: 8
 			}, {
 				name: 'Lvl 2',
 				title: 'Nivel 2 - facil',

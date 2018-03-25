@@ -12,32 +12,32 @@ $horizonal: new-breakpoint(max-height 500px 6);
 
 
  body {
- 	background: linear-gradient(90deg, #f9aa1f, #92c643, #656fb2, #15b69c, #eb1187, #f9aa1f);
-background-size: 1200% 1200%;
+	background: linear-gradient(90deg, #f9aa1f, #92c643, #656fb2, #15b69c, #eb1187, #f9aa1f);
+	background-size: 1200% 1200%;
 
--webkit-animation: AnimationName 150s ease infinite;
--moz-animation: AnimationName 150s ease infinite;
-animation: AnimationName 150s ease infinite;
+	-webkit-animation: AnimationName 150s ease infinite;
+	-moz-animation: AnimationName 150s ease infinite;
+	animation: AnimationName 150s ease infinite;
 
-@-webkit-keyframes AnimationName {
-    0%{background-position:45% 0%}
-    50%{background-position:56% 100%}
-    100%{background-position:45% 0%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:45% 0%}
-    50%{background-position:56% 100%}
-    100%{background-position:45% 0%}
-}
-@keyframes AnimationName { 
-    0%{background-position:45% 0%}
-    50%{background-position:56% 100%}
-    100%{background-position:45% 0%}
-}
+	@-webkit-keyframes AnimationName {
+	    0%{background-position:45% 0%}
+	    50%{background-position:56% 100%}
+	    100%{background-position:45% 0%}
+	}
+	@-moz-keyframes AnimationName {
+	    0%{background-position:45% 0%}
+	    50%{background-position:56% 100%}
+	    100%{background-position:45% 0%}
+	}
+	@keyframes AnimationName { 
+	    0%{background-position:45% 0%}
+	    50%{background-position:56% 100%}
+	    100%{background-position:45% 0%}
+	}
  	//padding-top: 70px;
 	overflow: hidden !important;
  }
-
+ 
  body:before {
  	position: fixed;
  	content: '';
@@ -245,14 +245,36 @@ animation: AnimationName 150s ease infinite;
     align-items: center;
 
     &.nivel-1 {
-    	
-	 	
+    	padding-top:0;
+	 	@include media($mobile) {
+	 		max-width: 100%;
+	 		padding-top: 0;
+	 		align-items: center;
+	 		align-content: center;
+		}
+ 	 	@include media($horizonal) {
+ 	 		padding-top: 110px;
+ 	 		align-items: flex-start;
+ 	 		align-content: flex-start;
+ 		}
     }
 
     &.nivel-2 {
     	max-width: 450px;
 	 	@include media($tablet) {
 	 		max-width: 100%;
+	 		padding-top:0;
+		}
+	 	@include media($mobile) {
+	 		max-width: 100%;
+	 		padding-top: 0;
+	 		align-items: center;
+	 		align-content: center;
+		}
+	 	@include media($horizonal) {
+	 		padding-top: 90px;
+	 		align-items: flex-start;
+	 		align-content: flex-start;
 		}
     }
 
@@ -260,6 +282,15 @@ animation: AnimationName 150s ease infinite;
     	max-width: 680px;
 	 	@include media($tablet) {
 	 		max-width: 100%;
+	 		padding-top:0;
+		}
+	 	@include media($mobile) {
+	 		max-width: 100%;
+		}
+	 	@include media($horizonal) {
+	 		padding-top: 110px;
+	 		align-items: flex-start;
+	 		align-content: flex-start;
 		}
     }
 
@@ -267,27 +298,66 @@ animation: AnimationName 150s ease infinite;
     	max-width: 780px;
 	 	@include media($tablet) {
 	 		max-width: 100%;
+	 		padding-top: 0;
+		}
+	 	@include media($mobile) {
+	 		max-width: 100%;
+	 		padding-top: 0;
+	 		align-items: center;
+	 		align-content: center;
+		}
+	 	@include media($horizonal) {
+	 		padding-top: 90px;
+	 		align-items: flex-start;
+	 		align-content: flex-start;
 		}
     }
 
     &.nivel-5 {
-
+    	max-width: 640px;
+	 	@include media($mobile) {
+	 		max-width: 100%;
+	 		padding-top: 0;
+	 		align-items: center;
+	 		align-content: center;
+		}
+	 	@include media($horizonal) {
+	 		padding-top: 110px;
+	 		align-items: flex-start;
+	 		align-content: flex-start;
+		}
     }
 
     &.nivel-6 {
-    	padding-top: 110px;
+    	padding-top: 60px;
+	 	@include media($mobile) {
+	 		max-width: 100%;
+	 		padding-top: 0;
+	 		align-items: center;
+	 		align-content: center;
+		}
+	 	@include media($horizonal) {
+	 		padding-top: 90px;
+	 		align-items: flex-start;
+	 		align-content: flex-start;
+		}
     }
 
     &.nivel-7 {
-    	padding-top: 110px;
+    	padding-top: 60px;
+    	max-width: 800px;
+	 	@include media($mobile) {
+	 		max-width: 100%;
+	 		padding-top: 0;
+	 		align-items: center;
+	 		align-content: center;
+		}
+	 	@include media($horizonal) {
+	 		padding-top: 90px;
+	 		align-items: flex-start;
+	 		align-content: flex-start;
+		}
     }
-
- 	@include media($vertical) {
- 		align-content: center;
- 		padding: 5px;
- 		max-width: 100%;
- 		margin: 0;
-	}
 
  	.card {
  		width: auto;
@@ -529,6 +599,8 @@ cursor: pointer;
 
 	@include media($tablet) {
 	font-size: 25px;
+	top: -15px;
+	left: -5px;
 	}
 
 
@@ -550,6 +622,12 @@ cursor: pointer;
 	left:0;
 	overflow: hidden;
 
+	@include media($tablet) {
+		height: 50px;
+	}
+
+	
+
 	.count {
 		position: absolute;
 		right: 10px;
@@ -557,6 +635,7 @@ cursor: pointer;
 
 		@include media($tablet) {
 		font-size: 25px;
+		top: 15px;
 		}
 	}
 
@@ -601,6 +680,11 @@ cursor: pointer;
  	top: 48px;
  	background: #666fb2;
 
+ 	@include media($tablet) {
+	padding: 20px 0 10px 0;
+	font-size: 20px;
+	top: 38px;
+	}
 	
 }
 

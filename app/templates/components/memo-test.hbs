@@ -37,27 +37,29 @@
 			<div class="animated bounceInUp">
 				<img src="img/pisku.svg" class="bounce pisku pisku-anim" width="150px">
 				{{#if isWin}}
-					<h2>Ganaste!</h2>
-					<audio src="img/win.mp3" autoplay>
-					<p>If you are reading this, it is because your browser does not support the audio element.     </p>
-					</audio>
-					<h2 style="font-size: 20px;">Puntaje: {{points}} + Bonus: {{pointsBonus}} ({{reminder}} segs)</h2>
-					<h2>Total: {{totalPoints}}</h2>
-					{{#link-to 'index' class='game-home'}} 
-						<i class="fa fa-home" aria-hidden="true"></i>
-					{{/link-to}}
+					<h2>Nivel completado!</h2>
+					<audio src="img/win.mp3" autoplay></audio>
 					{{#if hasNextLevel}}
+						<h2>Total: {{totalPoints}}pts</h2>
+						<h2 style="font-size: 20px;">{{points}}pts + {{pointsBonus}}pts ({{reminder}} segs)</h2>
+						{{#link-to 'index' class='game-home'}} 
+							<i class="fa fa-home" aria-hidden="true"></i>
+						{{/link-to}}
 						<a {{action 'next'}} class="game-next">
 							<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
 						</a>
 					{{else}}
-						<h2>Has ganado!</h2>
+						<h2>{{totalPoints}}pts</h2>
+						<h2>¿Jugamos otra ves?</h2>
+						{{#link-to 'index' class='game-home'}} 
+						<i class="fa fa-home" aria-hidden="true"></i>
+					{{/link-to}}
 					{{/if}}
 				{{/if}}
 				{{#if isLost}}
 					<h2>Se acabó el tiempo!</h2>
-					<h2 style="font-size: 20px;">Puntaje: {{points}} + Bonus: {{pointsBonus}} ({{reminder}} segs)</h2>
-					<h2>Total: {{totalPoints}}</h2>
+					<h2 style="font-size: 20px;">{{points}}pts + {{pointsBonus}}pts ({{reminder}} segs)</h2>
+					<h2>{{totalPoints}}pts</h2>
 					{{#link-to 'index' class='game-home'}} 
 						<i class="fa fa-home" aria-hidden="true"></i>
 					{{/link-to}}
